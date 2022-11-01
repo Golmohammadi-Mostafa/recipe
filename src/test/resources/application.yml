@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: recipe application
+  profiles:
+    active: test
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:recipe
+    username: recipe
+    password: recipe
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  liquibase:
+    enabled: false
+#  sql:
+#    init:
+#      data-locations: classpath:db/changelog/sql/01-script-init.sql

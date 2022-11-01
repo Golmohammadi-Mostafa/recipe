@@ -1,0 +1,12 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 2022-11-01-1
+      author: Mostafa
+      changes:
+        - sqlFile:
+            ndDelimiter: \nGO
+            splitStatements: true
+            path: db/changelog/sql/01-script-init.sql
+            stripComments: true
+
