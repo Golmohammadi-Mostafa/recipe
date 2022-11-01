@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  springboot-app-container:
+    container_name: recipe-springboot-app
+    image: recipe-app:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - /data/recipe-app
+    ports:
+      - "8080:8080"
+  database-container:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=recipe
+      - POSTGRES_PASSWORD=recipe
+      - POSTGRES_DB=recipe
+    container_name: recipe-springboot-db
+networks:
+  network:
+
+volumes:
+  volume:
