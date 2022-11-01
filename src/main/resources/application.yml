@@ -22,4 +22,4 @@ security:
   jwt:
     token:
       secret-key: secret-key
-      expire-length: 600000 # 10 minutes duration by default: 10 minutes * 60 seconds * 1000 miliseconds
+      expire-length: 600000 # 10 minutes duration by default: 10 minutes * 60 seconds * 1000 milliseconds
