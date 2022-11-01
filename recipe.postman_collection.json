@@ -1,0 +1,251 @@
+{
+  "info": {
+    "_postman_id": "e6436709-a12c-4808-bf08-b912951a08c0",
+    "name": "recipe",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "add recipe",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VzIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNjY3MjEyMDU0LCJleHAiOjE2NjcyMTIzNTR9.nyX0hOwT0kPa33Gq-YckesQrh5UIa_45GMH5WqLQh44",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "*/*"
+          },
+          {
+            "key": "Authorization",
+            "value": "bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VzIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNjY3MTY0Mjc5LCJleHAiOjE2NjcxNjQ1Nzl9.yjp5DRJzyvtBXiZIRFs0MrJ7wWB68K86q1OX_dJ25KI"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n   \"ingredients\":[\n      {\n         \"name\":\"salmon\"\n      },\n      {\n         \"name\":\"red onion\"\n      },\n      {\n         \"name\":\"olive oil\"\n      }\n   ],\n   \"instructions\":\"Preheat the oven to gas 6, 200°C, fan 180°C.\",\n   \"name\":\"Roasted salmon with beetroot and fennel\",\n   \"serves\":4,\n   \"vegetarian\":false\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/recipes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "recipes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get recipes",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VzIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNjY3MjEyNTMzLCJleHAiOjE2NjcyMTI4MzN9.3Kw-DhACz31Bpq9x7aOygzSqCzSJY3NnBpj6Ew7efQo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "*/*"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/recipes?page=0&searchIngredient=name:onion&searchRecipe=instructions:oven,vegetarian:false&size=20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "recipes"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "searchIngredient",
+              "value": "name:onion"
+            },
+            {
+              "key": "searchRecipe",
+              "value": "instructions:oven,vegetarian:false"
+            },
+            {
+              "key": "size",
+              "value": "20"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "signup",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "*/*"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{  \"password\": \"123\",  \"roleType\": [    \"ROLE_ADMIN\"  ],  \"username\": \"joes\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/signup",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "signup"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "*/*"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login?password=123&username=joes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ],
+          "query": [
+            {
+              "key": "password",
+              "value": "123"
+            },
+            {
+              "key": "username",
+              "value": "joes"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete recipe",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "accept",
+            "value": "*/*"
+          },
+          {
+            "key": "Authorization",
+            "value": "bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VzIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNjY3MjEyODY0LCJleHAiOjE2NjcyMTMxNjR9.NEX7kXI4g3VhAbE0nMUmlQzdruf8kJ0rUp_tHfIc340"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/recipes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "recipes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update recipe",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "accept",
+            "value": "*/*"
+          },
+          {
+            "key": "Authorization",
+            "value": "bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VzIiwiYXV0aCI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNjY3MjEzMTg0LCJleHAiOjE2NjcyMTM0ODR9.u1cmbVWbWdwSnKk386MeDEGA4H8M3eHQCEQWJ1YM7hI"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n   \"id\":4,\n   \"name\":\"Sweet Potato and Red Onion\",\n   \"serves\":2,\n   \"ingredients\":[\n      {\n         \"name\":\"Ginger\"\n      },\n      {\n         \"name\":\"Potato\"\n      },\n      {\n         \"name\":\"garlic\"\n      }\n   ],\n   \"vegetarian\":true,\n   \"instructions\":\"Roast in the oven for about 20 minutes or until the potatoes and the sweet potatoes are fork tender.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/recipes/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "recipes",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
