@@ -292,7 +292,7 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     /**
-     * this method parses the search filter for finding criteria
+     * this method parses the search filter for finding operations
      * (: !: < <= > >= )
      *
      * @param search this search filter query
